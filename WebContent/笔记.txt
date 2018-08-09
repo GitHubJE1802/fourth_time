@@ -1,0 +1,64 @@
+5月17号
+1.对象的三种状态：1.瞬时态，2.持久态 3.托管态（游离态）三种状态的区别！
+	(1) 临时状态（transient）：刚刚用new语句创建，还没有被持久化，不处于Session的缓存中。处于临时状态的Java对象被称为临时对象。
+	(2) 持久化状态（persistent）：已经被持久化，加入到Session的缓存中。处于持久化状态的Java对象被称为持久化对象。
+	(3) 游离状态（detached）：已经被持久化，但不再处于Session的缓存中。处于游离状态的Java对象被称为游离对象。
+		
+2.get和post的区别！
+3.service的目的就是把servlet和dao分离开来，前端是不能直接访问数据库的。这是业务层，前端是通过业务层来访问
+	dao层数据库的。用户借助dao层持久化到相应的介质之上，目前介质就是mysql。
+	service的实现类调用dao的实现类。
+6.页面输入中文乱码，
+	requset.setCharacterEncoding
+	String u =new String (username.getBytes("utf-8"),ios-895)
+7.jsp页面中怎么导包！
+8.$nbsp;表格占位符，否则表格残缺
+9.css js中 id 和 name，class 选择器的范围
+10.怎么把多个暂时不用的项目管理成另外一个大的项目里托管。重新部署项目，就是控制台 停止项目   然后重新启动项目 
+11.拆分功能，写功能！一条一条功能做！ 批量 删除 功能的实现！
+12.List<能不能放int> list集合的泛型里面只能放包装类？
+13.控制台sql语句批量删除用in();
+14.servlet中的语句的拼接，for语句+String.substring()
+
+16.checkOne 控制checkAll自己写！批量删除！ 重要！！
+17.parameter和attribute的区别？
+	(1)HttpServletRequest类有setAttribute()方法，而没有setParameter()方法
+	(2)当两个Web组件之间为链接关系时，被链接的组件通过getParameter()方法来获得请求参数，
+	(3)当两个Web组件之间为转发关系时，转发目标组件通过getAttribute()方法来和转发源组件共享request范围内的数据。
+	@·getParameter()可以得到浏览器页面传来的参数如？id=123之类的。
+	@·getAttribute()常用于servlet页面传对象给jsp
+	request.getParameter()方法传递的数据，会从Web客户端传到Web服务器端，代表HTTP请求数据
+	request.setAttribute()和getAttribute()方法传递的数据只会存在于Web容器内部 ,在具有转发关系的Web组件之间 共享。
+	即request.getAttribute()方法返回request范围内存在的对象，而request.getParameter()方法是 获取浏览器url http提交过来的数据。
+	——getParameter()是获取POST/GET传递的参数值； 
+	——getAttribute()是获取SESSION的值； 
+	来源不同:
+		   参数（parameter）是从客户端（浏览器）中由用户提供的，若是GET方法是从URL中 
+		提供的，若是POST方法是从请求体（request body）中提供的； 
+		  属性（attribute）是服务器端的组件（JSP或者Servlet）利用requst.setAttribute（）设置的
+	操作不同：
+		   参数（parameter）的值只能读取不能修改，读取可以使用request.getParameter()读取； 
+		  属性（attribute）的值既可以读取亦可以修改，读取可以使用request.setAttribute(),设置可使用request.getAttribute()
+	数据类型不同：
+		   参数（parameter）不管前台传来的值语义是什么，在服务器获取时都以String类型看待，并且客户端的参数值只能是简单类型的值，不能是复杂类型，比如一个对象。 
+		   属性（attribute）的值可以是任意一个Object类型。 
+	共同点 :
+		二者的值都被封装在request对象中。 
+18.input输入框中的name和value的区别？
+19.转发和重定向的区别：
+（1）转发的url是当前url，只请求一次，地址栏不变化，服务器会去帮忙请求，可以传递数据。
+（2）重定向的url是最终url，多次请求，地址栏是最终请求的地址栏，服务器会返回响应码，让浏览器自己再去精确请求。
+增删改完了不需要传递数据，用sendRedirect重定向，sendRedirect会舍弃之前request的数据，会丢失数据。
+需要数据存储 数据改变 数据的传递用转发，只要有setAttribute用请求转发。
+重定向的数据都会丢失。
+
+转发url不变，在服务器内部处理 地址栏不变，
+重定向：客户端多次和服务器端请求
+20.XML解析：
+	XML：可扩展标记语言，xml是数据传输的重要工具，跨平台，跨语言，跨系统。XML是数据封装和消息传递技术。显示，存储，传递的三个功能。
+实际上就是一个数据携带者，方便开发人员控制数据的存储和传输。XML提供统一的方法来描述和交换独立于应用程序或供应商的结构化数据。
+	XML的作用：1.配置文件，2.数据交互，3.Ajax的基础。
+	SAX：Simple API for XML
+
+Thread.currentThread().getContextClassLoader().getResourceAsStream()的作用
+	
